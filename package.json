@@ -1,7 +1,7 @@
 {
   "name": "money",
   "version": "1.0.0",
-  "description": "",
+  "description": "专门处理金额的 js 类",
   "main": "Money.js",
   "scripts": {
     "build": "gulp"
