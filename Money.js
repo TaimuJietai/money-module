@@ -1,7 +1,7 @@
 function Money(initParams) {
   /**************************************************  私有变量  **************************************************/
   var cent = 0;
-  var currency = 'CNY';
+  var currency = 'USD';
   var centFactor = 100;
   var self = this;
   var createDefineProperty = function(obj, prop, descriptor) {
@@ -95,14 +95,14 @@ function Money(initParams) {
   }
   //  设置分
   this.setCents = function(val) {
-    return centFactor !== 1 && self.toFixed(val / centFactor, Money.centFactors.indexOf(centFactor)) - 0 || val;
+    return centFactor !== 1 && self.bankersAlgorithm(val / centFactor, Money.centFactors.indexOf(centFactor)) - 0 || val;
   }
   //  换算回元
   this.setAmount = function(val) {
-    return centFactor !== 1 && self.toFixed(val * centFactor, 0) - 0 || val;
+    return centFactor !== 1 && self.bankersAlgorithm(val * centFactor, 0) - 0 || val;
   }
   //  银行家舍入法
-  this.toFixed = function(value, size = 2) {
+  this.bankersAlgorithm = function(value, size = 2) {
 
     //  确保值为数字
     var oldVal = value - 0;
@@ -158,7 +158,7 @@ function Money(initParams) {
     return self.compareTo(other) > 0;
   }
   this.getTranslateNumber = function() {
-    const ret = (self.amount.toFixed(2) - 0).toLocaleString() || self.amount.toString();
+    const ret = (self.amount.toFixed(2) - 0).toLocaleString();
     const result = ret === '0' && '0.00' || (ret.indexOf('.') === -1 && `${ret}.00` || ret);
     const nums = result.split('.');
     if (nums[1].length < 2) {
@@ -195,7 +195,11 @@ function Money(initParams) {
       }
       var __centFactor = self.centFactor;
       for (var i = 0, len = moneySymbolIndexs.length; i < len; i++) {
-        var __money = self.instanceof(computedList[i]) && computedList[i] || !isNaN(computedList[i] - 0) && new Money(computedList[i] - 0) || undefined;
+        var __money = self.instanceof(computedList[i]) && computedList[i] || !isNaN(computedList[i] - 0) && new Money({
+          //  直接传数字给 amount 会缓存回 cent ，堵塞了直观意识整算，比如 Money.computed(`($ + $ + $) / $`, [money1, money2, money3, 2]) 这个 2 会变成 200，所以需要直接设置给 cent
+          cent: computedList[i] - 0,
+          centFactor: __centFactor
+        }) || undefined;
         if (__money === undefined) {
           throw 'The variable is not an money!';
         }
@@ -204,8 +208,9 @@ function Money(initParams) {
         }
         computedStrList[moneySymbolIndexs[i]] = __money.cent;
       }
+      console.log('computedStrList: ', computedStrList.join('').replace(/\s/g, ''));
       return new Money({
-        cent: self.toFixed(eval(computedStrList.join('')), Money.centFactors.indexOf(__centFactor)),
+        cent: self.bankersAlgorithm(eval(computedStrList.join('')), 0),
         centFactor: __centFactor
       });
     } catch(err) {
