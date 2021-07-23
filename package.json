@@ -1,6 +1,6 @@
 {
   "name": "money-module",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Money class",
   "main": "Money.js",
   "scripts": {
