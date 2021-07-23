@@ -12,7 +12,7 @@
 
 ### Installing
 
-If you use npm, `npm install money-module`. You can also download the [latest release on GitHub](https://github.com/d3/d3/releases/latest).
+If you use npm, `npm install money-module`. You can also download the [latest release on GitHub](https://github.com/TaimuJietai/money-module/releases/tag/1.0.1).
 
 ##### NPM
 ```
@@ -21,7 +21,7 @@ npm i money-module --save
 
 ### Instructions
 ```
-const Money = require('./Money.js');
+const Money = require('money-module');
 const money = new Money({
   cent: 1235357
 });

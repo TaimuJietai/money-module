@@ -12,7 +12,7 @@
 
 ### 安装
 
-如果您使用 NPM， `npm install money-module`。 GitHub 上[下载最新版本](https://github.com/d3/d3/releases/latest)。
+如果您使用 NPM， `npm install money-module`。 GitHub 上[下载最新版本](https://github.com/TaimuJietai/money-module/releases/tag/1.0.1)。
 
 ##### NPM
 ```
@@ -21,7 +21,7 @@ npm i money-module --save
 
 ##### 使用方法
 ```
-const Money = require('./Money.js');
+const Money = require('money-module');
 const money = new Money({
   cent: 1235357
 });
