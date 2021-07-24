@@ -66,6 +66,9 @@ console.log('TranslateNumber: ', money3.getTranslateNumber());
 //  23,523.87
 console.log('showMoney: ', money3.showMoney());
 //  $23,523.87
+
+
+
 const moneys = [money, money1, money2, money3];
 //  运算
 const sum = Money.computed(`$ + ($ + $ + $) / $`, [...moneys, 2]);
@@ -80,6 +83,8 @@ console.log('sum: ', sum.valueOf())
   rsa: null
 }
  */
+
+
 const datas = [...moneys, '3'];
 //  升序排序
 const sorts = Money.sort(datas);
@@ -93,12 +98,12 @@ console.log('sorts: ', sorts2.map(e => e.amount || e - 0));
 
 ##### 静态对象
 
-| Name                  | default                                                                | Description                                             |
-| --------------------- | -----------------------------------------------------------------------| ------------------------------------------------------- |
-| Money.symbol          | { USD: '$', CNY: '￥', ... }                                            | 货币映射                                                  |
-| Money.centFactors     | 100                                                                    | 币种的元 / 分换算比率。                                     |
-| Money.computed        | Money.computed(`$ + ($ + $ + $) / $`, [...moneys, 2]);                 | 金额运算                                                  |
-| Money.sort            | Money.sort([...moneys, 2]);Money.sort([...moneys, 2], (a, b) => b - a);| 金额排序。                                                |
+| Name                  | default                                                                        | Description                                             |
+| --------------------- | ------------------------------------------------------------------------------ | ------------------------------------------------------- |
+| Money.symbol          |```  { USD: '$', CNY: '￥', ... }  ```                                          | 货币映射                                                  |
+| Money.centFactors     | ``` 100 ```                                                                    | 币种的元 / 分换算比率。                                     |
+| Money.computed        | ``` Money.computed(`$ + ($ + $ + $) / $`, [...moneys, 2]); ```                 | 金额运算                                                  |
+| Money.sort            | ``` Money.sort([...moneys, 2]);Money.sort([...moneys, 2], (a, b) => b - a); ```| 金额排序。                                                |
 
 ##### 常用属性
 
@@ -111,17 +116,17 @@ console.log('sorts: ', sorts2.map(e => e.amount || e - 0));
 
 ##### API 方法
 
-| Name                  | params                                                       | Description                                             |
-| --------------------- | ------------------------------------------------------------ | ------------------------------------------------------- |
-| valueOf               | money.valueOf();                                             | 转换成普通的 `Object` 对象                                 |
-| toString              | money.toString(null, 2);money.toString();                    | 序列化，-> JSON.stringify()                              |
-| equals                | money.equals(money2);// true/false                           | 判断两个 `money` 对象是否完全相等（通过序列化判断）            |
-| instanceof            | money.instanceof(money2);// true/false                       | 判断是否同一个金额类型。                                    |
-| isCurrency            | money.isCurrency('USD');// true                              | 是否是有效的货币类型                                       |
-| setMoney              | money.setMoney(money)                                        | 对一个 `money` 对象进行赋值,可以是数字、字符串、`money` 对象   |
-| equals                | money.equals(money2);// true/false                           | 判断两个 `money` 对象是否完全相等（通过序列化判断）            |
-| bankersAlgorithm      | money.bankersAlgorithm(0.28 * 100, 2);                       | 银行舍入法运算，`bankersAlgorithm(number, size)`。         |
-| compareTo             | money.bankersAlgorithm(money1);// money>money1 -> 1          | 大于：1，等于：0，小于：-1。                                |
-| greaterThan           | money.greaterThan(money1);// money>money1 -> true            | 判断本货币对象是否大于另一货币对象 true/false                 |
-| getTranslateNumber    | money.getTranslateNumber();// 23,523.87                      | 千位符处理                                                |
-| showMoney             | money.showMoney();// $23,523.87                              | 带货币符号的千位符字符串                                    |
+| Name                  | params                                                               | Description                                             |
+| --------------------- | -------------------------------------------------------------------- | ------------------------------------------------------- |
+| valueOf               | ``` money.valueOf(); ```                                             | 转换成普通的 `Object` 对象                                |
+| toString              | ``` money.toString(null, 2);money.toString(); ```                    | 序列化，-> JSON.stringify()                              |
+| equals                | ``` money.equals(money2);// true/false  ```                          | 判断两个 `money` 对象是否完全相等（通过序列化判断）            |
+| instanceof            | ``` money.instanceof(money2);// true/false ```                       | 判断是否同一个金额类型。                                    |
+| isCurrency            | ``` money.isCurrency('USD');// true ```                              | 是否是有效的货币类型                                       |
+| setMoney              | ``` money.setMoney(money)  ```                                       | 对一个 `money` 对象进行赋值,可以是数字、字符串、`money` 对象   |
+| equals                | ``` money.equals(money2);// true/false ```                           | 判断两个 `money` 对象是否完全相等（通过序列化判断）            |
+| bankersAlgorithm      | ``` money.bankersAlgorithm(0.28 * 100, 2); ```                       | 银行舍入法运算，`bankersAlgorithm(number, size)`。         |
+| compareTo             | ``` money.bankersAlgorithm(money1);// money>money1 -> 1 ```          | 大于：1，等于：0，小于：-1。                                |
+| greaterThan           | ``` money.greaterThan(money1);// money>money1 -> true  ```           | 判断本货币对象是否大于另一货币对象 true/false                 |
+| getTranslateNumber    | ``` money.getTranslateNumber();// 23,523.87  ```                     | 千位符处理                                                |
+| showMoney             | ``` money.showMoney();// $23,523.87 ```                              | 带货币符号的千位符字符串                                    |
