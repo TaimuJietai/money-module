@@ -4,7 +4,7 @@
   "description": "Money class",
   "main": "dist/money.min.v1.0.3.js",
   "scripts": {
-    "build": "gulp"
+    "build": "gulp && rm -rf node_modules && rm -rf example.html && rm -rf gulpfile.js && rm -rf npm-shrinkwrap.json && rm -rf test.js && rm -rf package-lock.json"
   },
   "repository": {
     "type": "git",
