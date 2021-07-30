@@ -170,95 +170,94 @@ function Money(initParams) {
     return Money.symbol[self.currency] + self.getTranslateNumber();
   }
 
-  /**************************************************  静态对象  **************************************************/
-  //  货币对象
-  Money.symbol = Object.fromEntries([ { "abbreviation": "ALL", "symbol": "Lek" }, { "abbreviation": "AFN", "symbol": "؋" }, { "abbreviation": "ARS", "symbol": "$" }, { "abbreviation": "AWG", "symbol": "ƒ" }, { "abbreviation": "AUD", "symbol": "$" }, { "abbreviation": "AZN", "symbol": "ман" }, { "abbreviation": "BSD", "symbol": "$" }, { "abbreviation": "BBD", "symbol": "$" }, { "abbreviation": "BYR", "symbol": "p." }, { "abbreviation": "BZD", "symbol": "BZ$" }, { "abbreviation": "BMD", "symbol": "$" }, { "abbreviation": "BOB", "symbol": "$b" }, { "abbreviation": "BAM", "symbol": "KM" }, { "abbreviation": "BWP", "symbol": "P" }, { "abbreviation": "BGN", "symbol": "лв" }, { "abbreviation": "BRL", "symbol": "R$" }, { "abbreviation": "BND", "symbol": "$" }, { "abbreviation": "KHR", "symbol": "៛" }, { "abbreviation": "CAD", "symbol": "$" }, { "abbreviation": "KYD", "symbol": "$" }, { "abbreviation": "CLP", "symbol": "$" }, { "abbreviation": "CNY", "symbol": "¥" }, { "abbreviation": "COP", "symbol": "$" }, { "abbreviation": "CRC", "symbol": "₡" }, { "abbreviation": "HRK", "symbol": "kn" }, { "abbreviation": "CUP", "symbol": "₱" }, { "abbreviation": "CZK", "symbol": "Kč" }, { "abbreviation": "DKK", "symbol": "kr" }, { "abbreviation": "DOP", "symbol": "RD$" }, { "abbreviation": "XCD", "symbol": "$" }, { "abbreviation": "EGP", "symbol": "£" }, { "abbreviation": "SVC", "symbol": "$" }, { "abbreviation": "EEK", "symbol": "kr" }, { "abbreviation": "EUR", "symbol": "€" }, { "abbreviation": "FKP", "symbol": "£" }, { "abbreviation": "FJD", "symbol": "$" }, { "abbreviation": "GHC", "symbol": "¢" }, { "abbreviation": "GIP", "symbol": "£" }, { "abbreviation": "GTQ", "symbol": "Q" }, { "abbreviation": "GGP", "symbol": "£" }, { "abbreviation": "GYD", "symbol": "$" }, { "abbreviation": "HNL", "symbol": "L" }, { "abbreviation": "HKD", "symbol": "$" }, { "abbreviation": "HUF", "symbol": "Ft" }, { "abbreviation": "ISK", "symbol": "kr" }, { "abbreviation": "INR", "symbol": null }, { "abbreviation": "IDR", "symbol": "Rp" }, { "abbreviation": "IRR", "symbol": "﷼" }, { "abbreviation": "IMP", "symbol": "£" }, { "abbreviation": "ILS", "symbol": "₪" }, { "abbreviation": "JMD", "symbol": "J$" }, { "abbreviation": "JPY", "symbol": "¥" }, { "abbreviation": "JEP", "symbol": "£" }, { "abbreviation": "KZT", "symbol": "лв" }, { "abbreviation": "KPW", "symbol": "₩" }, { "abbreviation": "KRW", "symbol": "₩" }, { "abbreviation": "KGS", "symbol": "лв" }, { "abbreviation": "LAK", "symbol": "₭" }, { "abbreviation": "LVL", "symbol": "Ls" }, { "abbreviation": "LBP", "symbol": "£" }, { "abbreviation": "LRD", "symbol": "$" }, { "abbreviation": "LTL", "symbol": "Lt" }, { "abbreviation": "MKD", "symbol": "ден" }, { "abbreviation": "MYR", "symbol": "RM" }, { "abbreviation": "MUR", "symbol": "₨" }, { "abbreviation": "MXN", "symbol": "$" }, { "abbreviation": "MNT", "symbol": "₮" }, { "abbreviation": "MZN", "symbol": "MT" }, { "abbreviation": "NAD", "symbol": "$" }, { "abbreviation": "NPR", "symbol": "₨" }, { "abbreviation": "ANG", "symbol": "ƒ" }, { "abbreviation": "NZD", "symbol": "$" }, { "abbreviation": "NIO", "symbol": "C$" }, { "abbreviation": "NGN", "symbol": "₦" }, { "abbreviation": "KPW", "symbol": "₩" }, { "abbreviation": "NOK", "symbol": "kr" }, { "abbreviation": "OMR", "symbol": "﷼" }, { "abbreviation": "PKR", "symbol": "₨" }, { "abbreviation": "PAB", "symbol": "B/." }, { "abbreviation": "PYG", "symbol": "Gs" }, { "abbreviation": "PEN", "symbol": "S/." }, { "abbreviation": "PHP", "symbol": "₱" }, { "abbreviation": "PLN", "symbol": "zł" }, { "abbreviation": "QAR", "symbol": "﷼" }, { "abbreviation": "RON", "symbol": "lei" }, { "abbreviation": "RUB", "symbol": "руб" }, { "abbreviation": "SHP", "symbol": "£" }, { "abbreviation": "SAR", "symbol": "﷼" }, { "abbreviation": "RSD", "symbol": "Дин." }, { "abbreviation": "SCR", "symbol": "₨" }, { "abbreviation": "SGD", "symbol": "$" }, { "abbreviation": "SBD", "symbol": "$" }, { "abbreviation": "SOS", "symbol": "S" }, { "abbreviation": "ZAR", "symbol": "R" }, { "abbreviation": "KRW", "symbol": "₩" }, { "abbreviation": "LKR", "symbol": "₨" }, { "abbreviation": "SEK", "symbol": "kr" }, { "abbreviation": "CHF", "symbol": "CHF" }, { "abbreviation": "SRD", "symbol": "$" }, { "abbreviation": "SYP", "symbol": "£" }, { "abbreviation": "TWD", "symbol": "NT$" }, { "abbreviation": "THB", "symbol": "฿" }, { "abbreviation": "TTD", "symbol": "TT$" }, { "abbreviation": "TRY", "symbol": null }, { "abbreviation": "TRL", "symbol": "₤" }, { "abbreviation": "TVD", "symbol": "$" }, { "abbreviation": "UAH", "symbol": "₴" }, { "abbreviation": "GBP", "symbol": "£" }, { "abbreviation": "USD", "symbol": "$" }, { "abbreviation": "UYU", "symbol": "$U" }, { "abbreviation": "UZS", "symbol": "лв" }, { "abbreviation": "VEF", "symbol": "Bs" }, { "abbreviation": "VND", "symbol": "₫" }, { "abbreviation": "YER", "symbol": "﷼" }, { "abbreviation": "ZWD", "symbol": "Z$" } ].map(function(e) {return [e.abbreviation, e.symbol];}));
-  Object.freeze(Money.symbol);
-  //  本货币币种的元 / 分换算比率。
-  Money.centFactors = [1, 10, 100, 1000];
-  Object.freeze(Money.centFactors);
-  //  运算金额
-  Money.computed = function(computedStr, computedList) {
-    if (!(Array.isArray(computedList) && computedList.length)) {
-      throw 'Operation array is empty!';
-    }
-    try {
-      var computedStrList = computedStr.split('');
-      var moneySymbolIndexs = [];
-      for (var i = 0, len = computedStrList.length; i < len; i++) {
-        if (computedStrList[i] === '$') {
-          moneySymbolIndexs.push(i);
-        }
-      }
-      if (moneySymbolIndexs.length !== computedList.length) {
-        throw 'The number of operation symbols is not equal to the length of the operation array!';
-      }
-      var __centFactor = self.centFactor;
-      for (var i = 0, len = moneySymbolIndexs.length; i < len; i++) {
-        var __money = self.instanceof(computedList[i]) && computedList[i] || !isNaN(computedList[i] - 0) && new Money({
-          //  直接传数字给 amount 会缓存回 cent ，堵塞了直观意识整算，比如 Money.computed(`($ + $ + $) / $`, [money1, money2, money3, 2]) 这个 2 会变成 200，所以需要直接设置给 cent
-          cent: computedList[i] - 0,
-          centFactor: __centFactor
-        }) || undefined;
-        if (__money === undefined) {
-          throw 'The variable is not an money!';
-        }
-        if (__centFactor !== __money.centFactor) {
-          __money.centFactor = __centFactor;
-        }
-        computedStrList[moneySymbolIndexs[i]] = __money.cent;
-      }
-      console.log('computedStrList: ', computedStrList.join('').replace(/\s/g, ''));
-      return new Money({
-        cent: self.bankersAlgorithm(eval(computedStrList.join('')), 0),
-        centFactor: __centFactor
-      });
-    } catch(err) {
-      console.log('err: ', err)
-      throw err;
-    }
-  }
-  //  排序
-  Money.sort = function(moneys, callback) {
-    if (!(Array.isArray(moneys) && moneys.length)) {
-      throw 'Operation array is empty!';
-    }
-    var moneyObj = {};
-    var __centFactor = self.centFactor;
-    for (var i = 0, len = moneys.length; i < len; i++) {
-      var newMoney = undefined;
-      if (self.instanceof(moneys[i])) {
-        newMoney = new Money(moneys[i]);
-      }
-      if (!newMoney && !isNaN(moneys[i] - 0)) {
-        newMoney = new Money(moneys[i] - 0);
-      }
-      if (!newMoney) {
-        throw 'index: ' + i + '-' + 'The variable is not an money!';
-      }
-      newMoney.centFactor = __centFactor;
-      if (!moneyObj[newMoney.cent]) {
-        moneyObj[newMoney.cent] = {
-          dataSource: []
-        };
-      }
-      moneyObj[newMoney.cent].dataSource.push(moneys[i]);
-    }
-    var cents = Object.keys(moneyObj).map(function(e) {return e - 0;});
-    var __callback = typeof callback === 'function' && callback || function(a, b) {return a - b;};
-    cents.sort(__callback);
-    var dataSources = [];
-    for (var i = 0, len = cents.length; i < len; i++) {
-      dataSources = dataSources.concat(moneyObj[cents[i].toString()].dataSource);
-    }
-    return moneys.sort(function(a, b) {
-      return dataSources.indexOf(a) - dataSources.indexOf(b);
-    });
-  }
-
   /**************************************************  构造函数  **************************************************/
   /**************************************************  构造函数必须要放到最后执行，才能初始化好 this 指向的方法  **************************************************/
   self.setMoney(initParams);
+}
+/**************************************************  静态对象  **************************************************/
+//  货币对象
+Money.symbol = Object.fromEntries([ { "abbreviation": "ALL", "symbol": "Lek" }, { "abbreviation": "AFN", "symbol": "؋" }, { "abbreviation": "ARS", "symbol": "$" }, { "abbreviation": "AWG", "symbol": "ƒ" }, { "abbreviation": "AUD", "symbol": "$" }, { "abbreviation": "AZN", "symbol": "ман" }, { "abbreviation": "BSD", "symbol": "$" }, { "abbreviation": "BBD", "symbol": "$" }, { "abbreviation": "BYR", "symbol": "p." }, { "abbreviation": "BZD", "symbol": "BZ$" }, { "abbreviation": "BMD", "symbol": "$" }, { "abbreviation": "BOB", "symbol": "$b" }, { "abbreviation": "BAM", "symbol": "KM" }, { "abbreviation": "BWP", "symbol": "P" }, { "abbreviation": "BGN", "symbol": "лв" }, { "abbreviation": "BRL", "symbol": "R$" }, { "abbreviation": "BND", "symbol": "$" }, { "abbreviation": "KHR", "symbol": "៛" }, { "abbreviation": "CAD", "symbol": "$" }, { "abbreviation": "KYD", "symbol": "$" }, { "abbreviation": "CLP", "symbol": "$" }, { "abbreviation": "CNY", "symbol": "¥" }, { "abbreviation": "COP", "symbol": "$" }, { "abbreviation": "CRC", "symbol": "₡" }, { "abbreviation": "HRK", "symbol": "kn" }, { "abbreviation": "CUP", "symbol": "₱" }, { "abbreviation": "CZK", "symbol": "Kč" }, { "abbreviation": "DKK", "symbol": "kr" }, { "abbreviation": "DOP", "symbol": "RD$" }, { "abbreviation": "XCD", "symbol": "$" }, { "abbreviation": "EGP", "symbol": "£" }, { "abbreviation": "SVC", "symbol": "$" }, { "abbreviation": "EEK", "symbol": "kr" }, { "abbreviation": "EUR", "symbol": "€" }, { "abbreviation": "FKP", "symbol": "£" }, { "abbreviation": "FJD", "symbol": "$" }, { "abbreviation": "GHC", "symbol": "¢" }, { "abbreviation": "GIP", "symbol": "£" }, { "abbreviation": "GTQ", "symbol": "Q" }, { "abbreviation": "GGP", "symbol": "£" }, { "abbreviation": "GYD", "symbol": "$" }, { "abbreviation": "HNL", "symbol": "L" }, { "abbreviation": "HKD", "symbol": "$" }, { "abbreviation": "HUF", "symbol": "Ft" }, { "abbreviation": "ISK", "symbol": "kr" }, { "abbreviation": "INR", "symbol": null }, { "abbreviation": "IDR", "symbol": "Rp" }, { "abbreviation": "IRR", "symbol": "﷼" }, { "abbreviation": "IMP", "symbol": "£" }, { "abbreviation": "ILS", "symbol": "₪" }, { "abbreviation": "JMD", "symbol": "J$" }, { "abbreviation": "JPY", "symbol": "¥" }, { "abbreviation": "JEP", "symbol": "£" }, { "abbreviation": "KZT", "symbol": "лв" }, { "abbreviation": "KPW", "symbol": "₩" }, { "abbreviation": "KRW", "symbol": "₩" }, { "abbreviation": "KGS", "symbol": "лв" }, { "abbreviation": "LAK", "symbol": "₭" }, { "abbreviation": "LVL", "symbol": "Ls" }, { "abbreviation": "LBP", "symbol": "£" }, { "abbreviation": "LRD", "symbol": "$" }, { "abbreviation": "LTL", "symbol": "Lt" }, { "abbreviation": "MKD", "symbol": "ден" }, { "abbreviation": "MYR", "symbol": "RM" }, { "abbreviation": "MUR", "symbol": "₨" }, { "abbreviation": "MXN", "symbol": "$" }, { "abbreviation": "MNT", "symbol": "₮" }, { "abbreviation": "MZN", "symbol": "MT" }, { "abbreviation": "NAD", "symbol": "$" }, { "abbreviation": "NPR", "symbol": "₨" }, { "abbreviation": "ANG", "symbol": "ƒ" }, { "abbreviation": "NZD", "symbol": "$" }, { "abbreviation": "NIO", "symbol": "C$" }, { "abbreviation": "NGN", "symbol": "₦" }, { "abbreviation": "KPW", "symbol": "₩" }, { "abbreviation": "NOK", "symbol": "kr" }, { "abbreviation": "OMR", "symbol": "﷼" }, { "abbreviation": "PKR", "symbol": "₨" }, { "abbreviation": "PAB", "symbol": "B/." }, { "abbreviation": "PYG", "symbol": "Gs" }, { "abbreviation": "PEN", "symbol": "S/." }, { "abbreviation": "PHP", "symbol": "₱" }, { "abbreviation": "PLN", "symbol": "zł" }, { "abbreviation": "QAR", "symbol": "﷼" }, { "abbreviation": "RON", "symbol": "lei" }, { "abbreviation": "RUB", "symbol": "руб" }, { "abbreviation": "SHP", "symbol": "£" }, { "abbreviation": "SAR", "symbol": "﷼" }, { "abbreviation": "RSD", "symbol": "Дин." }, { "abbreviation": "SCR", "symbol": "₨" }, { "abbreviation": "SGD", "symbol": "$" }, { "abbreviation": "SBD", "symbol": "$" }, { "abbreviation": "SOS", "symbol": "S" }, { "abbreviation": "ZAR", "symbol": "R" }, { "abbreviation": "KRW", "symbol": "₩" }, { "abbreviation": "LKR", "symbol": "₨" }, { "abbreviation": "SEK", "symbol": "kr" }, { "abbreviation": "CHF", "symbol": "CHF" }, { "abbreviation": "SRD", "symbol": "$" }, { "abbreviation": "SYP", "symbol": "£" }, { "abbreviation": "TWD", "symbol": "NT$" }, { "abbreviation": "THB", "symbol": "฿" }, { "abbreviation": "TTD", "symbol": "TT$" }, { "abbreviation": "TRY", "symbol": null }, { "abbreviation": "TRL", "symbol": "₤" }, { "abbreviation": "TVD", "symbol": "$" }, { "abbreviation": "UAH", "symbol": "₴" }, { "abbreviation": "GBP", "symbol": "£" }, { "abbreviation": "USD", "symbol": "$" }, { "abbreviation": "UYU", "symbol": "$U" }, { "abbreviation": "UZS", "symbol": "лв" }, { "abbreviation": "VEF", "symbol": "Bs" }, { "abbreviation": "VND", "symbol": "₫" }, { "abbreviation": "YER", "symbol": "﷼" }, { "abbreviation": "ZWD", "symbol": "Z$" } ].map(function(e) {return [e.abbreviation, e.symbol];}));
+Object.freeze(Money.symbol);
+//  本货币币种的元 / 分换算比率。
+Money.centFactors = [1, 10, 100, 1000];
+Object.freeze(Money.centFactors);
+//  运算金额
+Money.computed = function(computedStr, computedList) {
+  if (!(Array.isArray(computedList) && computedList.length)) {
+    throw 'Operation array is empty!';
+  }
+  try {
+    var computedStrList = computedStr.split('');
+    var moneySymbolIndexs = [];
+    for (var i = 0, len = computedStrList.length; i < len; i++) {
+      if (computedStrList[i] === '$') {
+        moneySymbolIndexs.push(i);
+      }
+    }
+    if (moneySymbolIndexs.length !== computedList.length) {
+      throw 'The number of operation symbols is not equal to the length of the operation array!';
+    }
+    var __centFactor = self.centFactor;
+    for (var i = 0, len = moneySymbolIndexs.length; i < len; i++) {
+      var __money = self.instanceof(computedList[i]) && computedList[i] || !isNaN(computedList[i] - 0) && new Money({
+        //  直接传数字给 amount 会缓存回 cent ，堵塞了直观意识整算，比如 Money.computed(`($ + $ + $) / $`, [money1, money2, money3, 2]) 这个 2 会变成 200，所以需要直接设置给 cent
+        cent: computedList[i] - 0,
+        centFactor: __centFactor
+      }) || undefined;
+      if (__money === undefined) {
+        throw 'The variable is not an money!';
+      }
+      if (__centFactor !== __money.centFactor) {
+        __money.centFactor = __centFactor;
+      }
+      computedStrList[moneySymbolIndexs[i]] = __money.cent;
+    }
+    console.log('computedStrList: ', computedStrList.join('').replace(/\s/g, ''));
+    return new Money({
+      cent: self.bankersAlgorithm(eval(computedStrList.join('')), 0),
+      centFactor: __centFactor
+    });
+  } catch(err) {
+    console.log('err: ', err)
+    throw err;
+  }
+}
+//  排序
+Money.sort = function(moneys, callback) {
+  if (!(Array.isArray(moneys) && moneys.length)) {
+    throw 'Operation array is empty!';
+  }
+  var moneyObj = {};
+  var __centFactor = self.centFactor;
+  for (var i = 0, len = moneys.length; i < len; i++) {
+    var newMoney = undefined;
+    if (self.instanceof(moneys[i])) {
+      newMoney = new Money(moneys[i]);
+    }
+    if (!newMoney && !isNaN(moneys[i] - 0)) {
+      newMoney = new Money(moneys[i] - 0);
+    }
+    if (!newMoney) {
+      throw 'index: ' + i + '-' + 'The variable is not an money!';
+    }
+    newMoney.centFactor = __centFactor;
+    if (!moneyObj[newMoney.cent]) {
+      moneyObj[newMoney.cent] = {
+        dataSource: []
+      };
+    }
+    moneyObj[newMoney.cent].dataSource.push(moneys[i]);
+  }
+  var cents = Object.keys(moneyObj).map(function(e) {return e - 0;});
+  var __callback = typeof callback === 'function' && callback || function(a, b) {return a - b;};
+  cents.sort(__callback);
+  var dataSources = [];
+  for (var i = 0, len = cents.length; i < len; i++) {
+    dataSources = dataSources.concat(moneyObj[cents[i].toString()].dataSource);
+  }
+  return moneys.sort(function(a, b) {
+    return dataSources.indexOf(a) - dataSources.indexOf(b);
+  });
 }
 try {
   module.exports = Money;
