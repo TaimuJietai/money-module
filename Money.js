@@ -157,6 +157,7 @@ function Money(initParams) {
   this.greaterThan = function(other) {
     return self.compareTo(other) > 0;
   }
+  //  获取千位符金额
   this.getTranslateNumber = function() {
     const ret = (self.amount.toFixed(2) - 0).toLocaleString();
     const result = ret === '0' && '0.00' || (ret.indexOf('.') === -1 && `${ret}.00` || ret);
@@ -166,8 +167,13 @@ function Money(initParams) {
     }
     return result;
   }
+  //  获取千位符加金额符号
   this.showMoney = function() {
-    return Money.symbol[self.currency] + self.getTranslateNumber();
+    return self.showSymbol() + self.getTranslateNumber();
+  }
+  //  获取金额符号
+  this.showSymbol = function() {
+    return Money.symbol[self.currency];
   }
 
   /**************************************************  构造函数  **************************************************/
