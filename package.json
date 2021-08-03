@@ -2,10 +2,7 @@
   "name": "money-module",
   "version": "1.0.4",
   "description": "Money class",
-  "main": "dist/money.min.v1.0.3.js",
-  "scripts": {
-    "build": "gulp && rm -rf node_modules && rm -rf example.html && rm -rf gulpfile.js && rm -rf npm-shrinkwrap.json && rm -rf test.js && rm -rf package-lock.json"
-  },
+  "main": "money.min.v1.0.4.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/TaimuJietai/Money.git"
@@ -18,10 +15,5 @@
   "bugs": {
     "url": "https://github.com/TaimuJietai/Money/issues"
   },
-  "homepage": "https://github.com/TaimuJietai/Money#readme",
-  "dependencies": {
-    "gulp": "4.0.2",
-    "gulp-rename": "2.0.0",
-    "gulp-uglify": "3.0.2"
-  }
+  "homepage": "https://github.com/TaimuJietai/Money#readme"
 }
