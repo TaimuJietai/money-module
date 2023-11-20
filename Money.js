@@ -159,9 +159,16 @@ function Money(initParams) {
   }
   //  获取千位符金额
   this.getTranslateNumber = function() {
-    const ret = (self.amount.toFixed(2) - 0).toLocaleString();
-    const result = ret === '0' && '0.00' || (ret.indexOf('.') === -1 && `${ret}.00` || ret);
-    const nums = result.split('.');
+    if (!self.amount || self.amount instanceof Date) {
+      return '0.00';
+    }
+    var _amount = self.amount - 0;
+    if (isNaN(_amount)) {
+      return '0.00';
+    }
+    var ret = (_amount).toFixed(2);
+    var result = ret === '0' && '0.00' || (ret.indexOf('.') === -1 && `${ret}.00` || ret);
+    var nums = result.split('.');
     if (nums[1].length < 2) {
       return `${result}0`;
     }
