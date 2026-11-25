@@ -4,7 +4,7 @@
 
 ### Currently, the currency implements the following main functions:
  * 1.Currency unit conversion;
- * 2.Use the "Banker's Rounding Method";
+ * 2.High-precision arithmetic via decimal.js (`dynamicCalculate`);
  * 3.Support direct object and object operation;
  * 4.Support automatic acquisition of currency symbols;
  * 5.Support size comparison and sorting between currency objects;
@@ -19,7 +19,48 @@ If you use npm, `npm install money-module`. You can also download the [latest re
 npm i money-module --save
 ```
 
+### Build
+
+```
+npm install
+npm run build
+```
+
+Outputs under `dist/` (filenames include the package version):
+- `money.v*.cjs` — CommonJS (`require`)
+- `money.v*.mjs` — ES module (`import`)
+- `money.min.v*.js` — browser IIFE (global `Money`)
+- `types/` — TypeScript declarations
+
+npm publish only ships `dist/` and README files (no source).
+
 ### Instructions
+
+##### CommonJS (Node)
+```
+const Money = require('money-module');
+```
+
+##### ES module / mjs
+```
+import Money from 'money-module';
+```
+
+##### TypeScript
+```
+import Money from 'money-module';
+// or
+import Money, { MoneyInit, MoneyLike } from 'money-module';
+```
+
+##### Browser
+```
+<script src="https://unpkg.com/money-module/dist/money.min.v1.1.0.js"></script>
+<script>
+  const money = new Money({ cent: 1235357 });
+</script>
+```
+
 ```
 const Money = require('money-module');
 const money = new Money({
@@ -124,8 +165,7 @@ console.log('sorts: ', sorts2.map(e => e.amount || e - 0));
 | isCurrency            | ``` money.isCurrency('USD');// true ```                              | Is it a valid currency type                                                              |
 | setMoney              | ``` money.setMoney(money) ```                                        | Assign a value to a `money` object, which can be a number, a string, or a `money` object |
 | equals                | ``` money.equals(money2);// true/false ```                           | Determine whether two `money` objects are completely equal (judging by serialization)    |
-| bankersAlgorithm      | ``` money.bankersAlgorithm(0.28 * 100, 2); ```                       | Banker's round,`bankersAlgorithm(number, size)`.                                         |
-| compareTo             | ``` money.bankersAlgorithm(money1);// money>money1 -> 1 ```          | Greater than: 1, equal to: 0, less than: -1.                                             |
+| compareTo             | ``` money.compareTo(money1);// money>money1 -> 1 ```                 | Greater than: 1, equal to: 0, less than: -1.                                             |
 | greaterThan           | ``` money.greaterThan(money1);// money>money1 -> true ```            | Determine whether this currency object is larger than another currency object. true/false|
 | getTranslateNumber    | ``` money.getTranslateNumber();// 23,523.87  ```                     | Thousand sign handling                                                                   |
 | showMoney             | ``` money.showMoney();// $23,523.87 ```                              | Thousand character string with currency symbol   .                                       |

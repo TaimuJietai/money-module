@@ -4,7 +4,7 @@
 
 ### 目前，货币实现了以下主要功能：
  * 1.转换“元、角、分、厘”的换算；
- * 2.采用“银行家舍入法”四舍六入五留双；
+ * 2.基于 decimal.js 的高精度运算（`dynamicCalculate`）；
  * 3.支持直接对象与对象的运算；
  * 4.支持货币符号的自动获取；
  * 5.支持货币对象间的大小对比，排序；
@@ -19,7 +19,48 @@
 npm i money-module --save
 ```
 
+### 构建
+
+```
+npm install
+npm run build
+```
+
+产物在 `dist/`（文件名带 package 版本号）：
+- `money.v*.cjs` — CommonJS（`require`）
+- `money.v*.mjs` — ES module（`import`）
+- `money.min.v*.js` — 浏览器 IIFE（全局 `Money`）
+- `types/` — TypeScript 类型声明
+
+npm 发布只包含 `dist/` 与 README（不含源码）。
+
 ##### 使用方法
+
+##### CommonJS（Node）
+```
+const Money = require('money-module');
+```
+
+##### ES module / mjs
+```
+import Money from 'money-module';
+```
+
+##### TypeScript
+```
+import Money from 'money-module';
+// 或
+import Money, { MoneyInit, MoneyLike } from 'money-module';
+```
+
+##### 浏览器
+```
+<script src="https://unpkg.com/money-module/dist/money.min.v1.1.0.js"></script>
+<script>
+  const money = new Money({ cent: 1235357 });
+</script>
+```
+
 ```
 const Money = require('money-module');
 const money = new Money({
@@ -125,8 +166,7 @@ console.log('sorts: ', sorts2.map(e => e.amount || e - 0));
 | isCurrency            | ``` money.isCurrency('USD');// true ```                              | 是否是有效的货币类型                                       |
 | setMoney              | ``` money.setMoney(money)  ```                                       | 对一个 `money` 对象进行赋值,可以是数字、字符串、`money` 对象   |
 | equals                | ``` money.equals(money2);// true/false ```                           | 判断两个 `money` 对象是否完全相等（通过序列化判断）            |
-| bankersAlgorithm      | ``` money.bankersAlgorithm(0.28 * 100, 2); ```                       | 银行舍入法运算，`bankersAlgorithm(number, size)`。         |
-| compareTo             | ``` money.bankersAlgorithm(money1);// money>money1 -> 1 ```          | 大于：1，等于：0，小于：-1。                                |
+| compareTo             | ``` money.compareTo(money1);// money>money1 -> 1 ```                 | 大于：1，等于：0，小于：-1。                                |
 | greaterThan           | ``` money.greaterThan(money1);// money>money1 -> true  ```           | 判断本货币对象是否大于另一货币对象 true/false                 |
 | getTranslateNumber    | ``` money.getTranslateNumber();// 23,523.87  ```                     | 千位符处理                                                |
 | showMoney             | ``` money.showMoney();// $23,523.87 ```                              | 带货币符号的千位符字符串                                    |

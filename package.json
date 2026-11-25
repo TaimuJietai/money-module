@@ -1,10 +1,34 @@
 {
   "name": "money-module",
-  "version": "1.0.9",
+  "version": "1.1.0",
   "description": "Money class",
-  "main": "dist/money.min.v1.0.3.js",
+  "main": "./dist/money.v1.1.0.cjs",
+  "module": "./dist/money.v1.1.0.mjs",
+  "browser": "./dist/money.min.v1.1.0.js",
+  "types": "./dist/types/index.d.ts",
+  "typings": "./dist/types/index.d.ts",
+  "unpkg": "./dist/money.min.v1.1.0.js",
+  "jsdelivr": "./dist/money.min.v1.1.0.js",
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/money.v1.1.0.mjs",
+      "require": "./dist/money.v1.1.0.cjs",
+      "default": "./dist/money.v1.1.0.mjs"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "README-CN.md"
+  ],
   "scripts": {
-    "build": "gulp && rm -rf node_modules && rm -rf example.html && rm -rf gulpfile.js && rm -rf npm-shrinkwrap.json && rm -rf test.js && rm -rf package-lock.json"
+    "dev": "vite",
+    "build": "vite build && tsc -p tsconfig.json && node ./scripts/prepare-types.mjs",
+    "preview": "vite preview",
+    "test": "node test.js",
+    "prepublishOnly": "npm run build && node ./scripts/prepare-publish.mjs",
+    "publish:npm": "npm publish"
   },
   "repository": {
     "type": "git",
@@ -19,9 +43,9 @@
     "url": "https://github.com/TaimuJietai/Money/issues"
   },
   "homepage": "https://github.com/TaimuJietai/Money#readme",
-  "dependencies": {
-    "gulp": "4.0.2",
-    "gulp-rename": "2.0.0",
-    "gulp-uglify": "3.0.2"
+  "devDependencies": {
+    "decimal.js": "^10.6.0",
+    "typescript": "^5.8.3",
+    "vite": "^6.3.5"
   }
 }

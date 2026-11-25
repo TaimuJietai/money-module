@@ -1,0 +1,14 @@
+**/*.map
+src/
+scripts/
+test.js
+example.html
+vite.config.mts
+tsconfig.json
+pnpm-lock.yaml
+package-lock.json
+pnpm-workspace.yaml
+*.tgz
+.github/
+.vscode/
+.idea/

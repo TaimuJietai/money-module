@@ -1,4 +1,5 @@
-const Money = require('./Money.js');
+const { version } = require('./package.json');
+const Money = require(`./dist/money.v${version}.cjs`);
 const money = new Money({
   cent: 1235357
 });
@@ -61,7 +62,7 @@ const datas = [...moneys, '3'];
 //  升序排序
 const sorts = Money.sort(datas);
 console.log('sorts: ', sorts.map(e => e.amount || e - 0));
-//  [ 3, 12353.57, 23423.98, 23523.873, 32563.29 ]
+//  [ 3, 12353.57, 23423.98, 23523.873, 32563.28 ]
 //  降序排序
 const sorts2 = Money.sort(datas, (a, b) => b - a);
 console.log('sorts: ', sorts2.map(e => e.amount || e - 0));
